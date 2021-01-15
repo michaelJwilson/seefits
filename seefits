@@ -38,7 +38,7 @@ def print_header(allfits, name, printhead = False, tile = '00098'):
   hdrs                     = [x.header for x in dat]
   hdrkeys                  = list(dat[1].header.keys()) 
   
-  print("\nGetting:  %s\n" % fname)
+  print("\nGetting:  {} ({:d} rows)\n" .format(fname, len(dat[1].data)))
 
   if printhead:
     print(repr(dat[1].header))
@@ -62,8 +62,7 @@ if __name__ == "__main__":
   for x in allfits.keys():
     print(x)
   
-  ## for x in ["ELG", "TARGETSTRUTH", "TARGETS", "CONDITIONS", "FIBERS", "IN2OUT"]:
   for x in allfits.keys():
-    print_header(allfits, x)
+      print_header(allfits, x)
 
   print("\n\nDone.\n\n")
